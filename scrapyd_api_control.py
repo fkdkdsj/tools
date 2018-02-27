@@ -16,7 +16,6 @@ class Scrapyd_Control():
     scrapyd = ScrapydAPI(scrapyd_url)
 
     # 启动爬虫
-    @property
     def start(self):
         spider = input('请输入爬虫名称： ')
         return {
@@ -26,45 +25,37 @@ class Scrapyd_Control():
             }
 
     # 取消爬虫
-    @property
     def cancel(self):
         jobid = input('请粘贴要取消的爬虫jobid： ')
         return self.scrapyd.cancel(self.project, jobid)
 
     # 查看项目
-    @property
     def listprojects(self):
         return self.scrapyd.list_projects()
 
     # 查看爬虫
-    @property
     def listspiders(self):
         return self.scrapyd.list_spiders(self.project)
 
     # 列出所有jobs
-    @property
     def listjobs(self):
         return self.scrapyd.list_jobs(self.project)
 
     # 查看job状态
-    @property
     def jobstatus(self):
         jobid = input('请粘贴要查看的jobid: ')
         return self.scrapyd.job_status(self.project, jobid)
 
     # 查看版本
-    @property
     def listversions(self):
         return self.scrapyd.list_versions(self.project)
 
     # 删除版本
-    @property
     def delversion(self):
         version_name = input('请粘贴要删除的版本： ')
         return self.scrapyd.delete_version(self.project, version_name)
 
     # 删除项目
-    @property
     def delproject(self):
         self.scrapyd.delete_project(self.project)
         
