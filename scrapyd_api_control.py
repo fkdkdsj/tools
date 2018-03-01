@@ -2,7 +2,7 @@
 ipython
 >>> from scrapyd_api_control import Scrapyd_Control
 >>> s = Scrapyd_Control()
->>> s.start
+>>> s.start()
 此程序只能针对一个项目控制（多个）爬虫，如果有另一个项目，需再另运行此程序
 """
 
