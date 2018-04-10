@@ -1,0 +1,39 @@
+def Headers2Dict(headers_str):
+    
+    if not headers_str:
+        return {}
+
+    headers = {}
+    
+    item_list = headers_str.splitlines(keepends=False)
+    for item in item_list:
+        item_str = item.strip()
+        if not item_str:
+            continue
+        if item_str.startswith(':'):
+            continue
+        key_value_pair = item_str.split(':')
+        if len(key_value_pair) < 2:
+            continue
+        k, v = key_value_pair[0], key_value_pair[1]
+        headers[k] = v.strip()
+    return headers
+
+
+if __name__ == '__main__':
+    
+    headers_str = '''
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+    Accept-Encoding: gzip, deflate
+    Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7
+    Cache-Control: max-age=0
+    Connection: keep-alive
+    DNT: 1
+    Host: linw1995.com
+    If-Modified-Since: Wed, 21 Mar 2018 12:20:48 GMT
+    Upgrade-Insecure-Requests: 1
+    User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+    '''
+    
+    headers = Headers2Dict(headers_str)
+    print(headers)
