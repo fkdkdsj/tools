@@ -25,6 +25,7 @@ class Scrapyd_Control(object):
             'jobid': self.scrapyd.schedule(self.project, spider)
             }
     run = start
+    schedule = start
 
     # 取消爬虫
     def cancel(self):
@@ -64,7 +65,7 @@ class Scrapyd_Control(object):
     # 列出所有命令
     def help(self):
         print("""
-        启动爬虫 start|run
+        启动爬虫 schedule|start|run
         取消爬虫 cancel
         查看项目 listprojects
         查看爬虫 listspiders
