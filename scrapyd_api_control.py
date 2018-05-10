@@ -3,14 +3,13 @@ ipython
 >>> from scrapyd_api_control import Scrapyd_Control
 >>> s = Scrapyd_Control()
 >>> s.start()
-此程序只能针对一个项目控制（多个）爬虫，如果有另一个项目，需再另运行此程序
+此程序只能针对一个项目控制（一个|多个）爬虫，如果有另一个项目，需再另运行此程序
 """
 
 from scrapyd_api import ScrapydAPI
 
 
 class Scrapyd_Control():
-
     scrapyd_url = input('请输入scrapyd地址： ')
     project = input('请输入项目名称： ')
     scrapyd = ScrapydAPI(scrapyd_url)
