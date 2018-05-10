@@ -9,10 +9,12 @@ ipython
 from scrapyd_api import ScrapydAPI
 
 
-class Scrapyd_Control():
-    scrapyd_url = input('请输入scrapyd地址： ')
-    project = input('请输入项目名称： ')
-    scrapyd = ScrapydAPI(scrapyd_url)
+class Scrapyd_Control(object):
+    def __init__(self):
+        scrapyd_url = input('请输入scrapyd地址： ')
+        project = input('请输入项目名称： ')
+        self.project = project
+        self.scrapyd = ScrapydAPI(scrapyd_url)
 
     # 启动爬虫
     def start(self):
