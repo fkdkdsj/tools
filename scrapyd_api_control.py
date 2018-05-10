@@ -17,15 +17,14 @@ class Scrapyd_Control(object):
         self.scrapyd = ScrapydAPI(scrapyd_url)
 
     # 启动爬虫
-    def start(self):
+    def schedule(self):
         spider = input('请输入爬虫名称： ')
         return {
             'project': self.project,
             'spider': spider,
             'jobid': self.scrapyd.schedule(self.project, spider)
             }
-    run = start
-    schedule = start
+    start, run = schedule, schedule
 
     # 取消爬虫
     def cancel(self):
