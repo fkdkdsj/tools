@@ -60,4 +60,18 @@ class Scrapyd_Control():
     def delproject(self):
         self.scrapyd.delete_project(self.project)
         
+    # 列出所有命令
+    def help(self):
+        print("""
+        启动爬虫 start|run
+        取消爬虫 cancel
+        查看项目 listprojects
+        查看爬虫 listspiders
+        列出所有jobs listjobs 
+        查看job状态 jobstatus
+        查看版本 listversions
+        删除版本 delversion
+        删除项目 deleproject
+        列出所有命令 help
+        """)
         
