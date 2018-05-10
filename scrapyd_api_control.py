@@ -55,11 +55,19 @@ class Scrapyd_Control(object):
     # 删除版本
     def delversion(self):
         version_name = input('请粘贴要删除的版本： ')
-        return self.scrapyd.delete_version(self.project, version_name)
+        yes = input('是否确认删除该版本{}，请输yes否则回车跳过删除\n'.format(version_name))
+        if yes == 'yes':
+            return self.scrapyd.delete_version(self.project, version_name)
+        else:
+            pass
 
     # 删除项目
     def delproject(self):
-        self.scrapyd.delete_project(self.project)
+        yes = input('是否确认删除该项目{}，请输yes否则回车跳过删除\n'.format(self.project))
+        if yes == 'yes':
+            return self.scrapyd.delete_project(self.project)
+        else:
+            pass
         
     # 列出所有命令
     def help(self):
