@@ -23,7 +23,8 @@ class Scrapyd_Control(object):
             'project': self.project,
             'spider': spider,
             'jobid': self.scrapyd.schedule(self.project, spider)
-            }
+        }
+    
     start, run = schedule, schedule
 
     # 取消爬虫
